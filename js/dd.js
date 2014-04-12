@@ -16,7 +16,7 @@
             $placeholder.text($firstText);
             $input.val($firstVal);
 
-            $dd.on('click', function(event) {
+            $(document).on('click', $dd, function(event) {
                 event.preventDefault();
                 $dd.toggleClass('active');
             });
@@ -36,16 +36,11 @@
                 }
             });
 
-            $(document).click(function(event) {
+            $(document).on('click', function(event) {
                 if ($(event.target).closest($dd).length === 0) {
                     $dd.removeClass('active');
                 }
             });
-
-            $(window).on('resize', function() {
-                $list.css('width', $dd.outerWidth());
-            }).trigger('resize');
-
         });
     };
 

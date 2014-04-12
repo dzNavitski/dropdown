@@ -17,12 +17,8 @@
 .wrapper-dropdown {
     position: relative;
     width: 100%;
-    padding: 10px;
-    margin: 0 auto;
     outline: none;
     cursor: pointer;
-    border: 1px solid black;
-    transition: all 0.2s ease-out;
 }
 
 .wrapper-dropdown:after {
@@ -39,25 +35,53 @@
     -webkit-transform: rotate(360deg);
 }
 
+.wrapper-dropdown.active:after {
+    border-color: transparent transparent #000 transparent;
+    border-width: 0 3px 6px 3px;
+    margin-top: -3px;
+}
+
+.wrapper-dropdown.active {
+    background: #f0f0f0;
+}
+
+.wrapper-dropdown span {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.dd-input {
+    display: none;
+}
+
 .dropdown {
     position: absolute;
+    max-height: 0;
     top: 100%;
-    left: -1px;
+    left: 0;
     right: 0;
     padding: 0;
     margin: 0;
     list-style: none;
     border: 1px solid black;
     border-top: 0;
-    pointer-events: none;
+    border-bottom: 0;
     background: #fff;
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: max-height 0.2s ease-in;
-    -moz-transition: max-height 0.2s ease-in;
-    -ms-transition: max-height 0.2s ease-in;
-     -o-transition: max-height 0.2s ease-in;
-        transition: max-height 0.2s ease-in;
+    overflow-y: hidden;
+    pointer-events: none;
+    z-index: 50001;
+    -webkit-transition: max-height 0.3s;
+    -moz-transition: max-height 0.3s;
+    transition: max-height 0.3s;
+}
+
+.wrapper-dropdown.active .dropdown {
+    max-height: 200px;
+    border-bottom: 1px solid black;
+    overflow-y: auto;
+    pointer-events: auto;
 }
 
 .dropdown:focus {
@@ -68,11 +92,6 @@
     display: block;
     text-decoration: none;
     padding: 10px;
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-     -o-transition: all 0.2s ease-out;
-        transition: all 0.2s ease-out;
 }
 
 .dropdown li.selected a {
@@ -87,39 +106,4 @@
     background: #f0f0f0;
 }
 
-.wrapper-dropdown.active {
-    z-index: 50001;
-}
 
-.wrapper-dropdown.active .dropdown {
-    border: 1px solid black;
-    pointer-events: auto;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.wrapper-dropdown.active:after {
-    border-color: transparent transparent #000 transparent;
-    border-width: 0 3px 6px 3px;
-    margin-top: -3px;
-}
-
-.wrapper-dropdown.active {
-    background: #f0f0f0;
-}
-
-.no-opacity .wrapper-dropdown .dropdown,
-.no-pointerevents .wrapper-dropdown .dropdown {
-    display: none;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.no-opacity .wrapper-dropdown.active .dropdown,
-.no-pointerevents .wrapper-dropdown.active .dropdown {
-    display: block;
-}
-
-.dd-input {
-    display: none;
-}

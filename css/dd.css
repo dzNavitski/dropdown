@@ -1,0 +1,125 @@
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+.wrapper-dropdown {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid black;
+    transition: all 0.2s ease-out;
+}
+
+.wrapper-dropdown:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -3px;
+    border-width: 6px 3px 0 3px;
+    border-style: solid;
+    border-color: #000 transparent transparent transparent;
+    -webkit-transform: rotate(360deg);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: -1px;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid black;
+    border-top: 0;
+    pointer-events: none;
+    background: #fff;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.2s ease-in;
+    -moz-transition: max-height 0.2s ease-in;
+    -ms-transition: max-height 0.2s ease-in;
+     -o-transition: max-height 0.2s ease-in;
+        transition: max-height 0.2s ease-in;
+}
+
+.dropdown:focus {
+    outline: none;
+}
+
+.dropdown li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+     -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+}
+
+.dropdown li.selected a {
+    background: #f0f0f0;
+}
+
+.dropdown li.selected:hover a {
+    background: #f0f0f0;
+}
+
+.dropdown li:hover a {
+    background: #f0f0f0;
+}
+
+.wrapper-dropdown.active {
+    z-index: 50001;
+}
+
+.wrapper-dropdown.active .dropdown {
+    border: 1px solid black;
+    pointer-events: auto;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.wrapper-dropdown.active:after {
+    border-color: transparent transparent #000 transparent;
+    border-width: 0 3px 6px 3px;
+    margin-top: -3px;
+}
+
+.wrapper-dropdown.active {
+    background: #f0f0f0;
+}
+
+.no-opacity .wrapper-dropdown .dropdown,
+.no-pointerevents .wrapper-dropdown .dropdown {
+    display: none;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.no-opacity .wrapper-dropdown.active .dropdown,
+.no-pointerevents .wrapper-dropdown.active .dropdown {
+    display: block;
+}
+
+.dd-input {
+    display: none;
+}

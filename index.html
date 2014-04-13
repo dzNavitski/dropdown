@@ -4,6 +4,51 @@
         <meta charset="UTF-8">
         <title>Document</title>
         <link rel="stylesheet" href="css/dd.css">
+        <style type="text/css" media="screen">
+                body {
+                    font: 14px/1.4 Arial;
+                }
+
+                .dd-conatiner {
+                    width: 300px;
+                    margin: 20px auto;
+                    padding: 5px;
+                    background: #37bce6;
+                }
+
+                .wrapper-dropdown {
+                    background: #fff;
+                }
+
+                .wrapper-dropdown.active {
+                    background: #fff;
+                }
+
+                .wrapper-dropdown span {
+                    border: 1px solid #37bce6;
+                    border-bottom: 0;
+                }
+
+                .dropdown {
+                    border: 1px solid #37bce6;
+                    border-top: 0;
+                    border-bottom: 0;
+                }
+
+                .wrapper-dropdown.active .dropdown {
+                    border: 1px solid #37bce6;
+                    border-top: 0;
+                }
+
+                .dropdown li a {
+                    color: #000;
+                }
+
+                .dropdown li.selected a, .dropdown li a:hover,.dropdown li.selected a:hover  {
+                    color: #f0f0f0;
+                    background: #5fbdce;
+                }
+        </style>
     </head>
     <body>
         <div class="dd-conatiner">

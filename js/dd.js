@@ -6,8 +6,8 @@
             var $dd = $(this);
             var $placeholder = $dd.children('span');
             var $input = $dd.children('input');
-            var $list = $dd.find('ul.dropdown');
-            var $opts = $dd.find('ul.dropdown > li');
+            var $list = $dd.find('.dropdown');
+            var $opts = $dd.find('.dropdown > li');
             var $first = $opts.first();
             var $firstText = $first.text();
             var $firstVal = $first.data('value');

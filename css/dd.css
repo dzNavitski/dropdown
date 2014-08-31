@@ -1,109 +1,44 @@
-*,
-*:after,
-*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+*, *:before, *:after {
     box-sizing: border-box;
 }
 
-::selection {
-    background: transparent;
-}
-
-::-moz-selection {
-    background: transparent;
-}
-
-.wrapper-dropdown {
+.dropdown-wrap {
     position: relative;
     width: 100%;
     outline: none;
     cursor: pointer;
 }
 
-.wrapper-dropdown:after {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    margin-top: -3px;
-    border-width: 6px 3px 0 3px;
-    border-style: solid;
-    border-color: #000 transparent transparent transparent;
-    -webkit-transform: rotate(360deg);
-}
-
-.wrapper-dropdown.active:after {
-    border-color: transparent transparent #000 transparent;
-    border-width: 0 3px 6px 3px;
-    margin-top: -3px;
-}
-
-.wrapper-dropdown.active {
-    background: #f0f0f0;
-}
-
-.wrapper-dropdown span {
+.dropdown-placeholder {
     display: inline-block;
     width: 100%;
     padding: 10px;
     border: 1px solid black;
 }
 
-.dd-input {
-    display: none;
-}
-
 .dropdown {
     position: absolute;
-    max-height: 0;
     top: 100%;
     left: 0;
     right: 0;
+    display: none;
     padding: 0;
     margin: 0;
     list-style: none;
     border: 1px solid black;
-    border-top: 0;
-    border-bottom: 0;
-    background: #fff;
-    overflow-y: hidden;
-    pointer-events: none;
     z-index: 50001;
-    -webkit-transition: max-height 0.3s;
-    -moz-transition: max-height 0.3s;
-    transition: max-height 0.3s;
 }
 
-.wrapper-dropdown.active .dropdown {
-    max-height: 200px;
-    border-bottom: 1px solid black;
-    overflow-y: auto;
-    pointer-events: auto;
+.dropdown-wrap.is-active .dropdown {
+    display: block;
+}
+
+.dropdown-option {
+    padding: 10px;
 }
 
 .dropdown:focus {
     outline: none;
-}
-
-.dropdown li a {
-    display: block;
-    text-decoration: none;
-    padding: 10px;
-}
-
-.dropdown li.selected a {
-    background: #f0f0f0;
-}
-
-.dropdown li.selected:hover a {
-    background: #f0f0f0;
-}
-
-.dropdown li:hover a {
-    background: #f0f0f0;
 }
 
 

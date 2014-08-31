@@ -2,85 +2,42 @@
     <html>
         <head>
         <meta charset="UTF-8">
-        <title>Document</title>
+        <title>Dropdown</title>
         <link rel="stylesheet" href="css/dd.css">
-        <style type="text/css" media="screen">
-                body {
-                    font: 14px/1.4 Arial;
-                }
-
-                .dd-conatiner {
-                    width: 300px;
-                    margin: 20px auto;
-                    padding: 5px;
-                    background: #37bce6;
-                }
-
-                .wrapper-dropdown {
-                    background: #fff;
-                }
-
-                .wrapper-dropdown.active {
-                    background: #fff;
-                }
-
-                .wrapper-dropdown span {
-                    border: 1px solid #37bce6;
-                    border-bottom: 0;
-                }
-
-                .dropdown {
-                    border: 1px solid #37bce6;
-                    border-top: 0;
-                    border-bottom: 0;
-                }
-
-                .wrapper-dropdown.active .dropdown {
-                    border: 1px solid #37bce6;
-                    border-top: 0;
-                }
-
-                .dropdown li a {
-                    color: #000;
-                }
-
-                .dropdown li.selected a, .dropdown li a:hover,.dropdown li.selected a:hover  {
-                    color: #f0f0f0;
-                    background: #5fbdce;
-                }
-        </style>
     </head>
     <body>
         <div class="dd-conatiner">
-            <div class="dd wrapper-dropdown">
-                <span></span>
-                <input class="dd-input" type="text" value="">
-                    <ul class="dropdown">
-                        <li data-value=""><a href="#">Choose item</a></li>
-                        <li data-value="Item 1"><a href="#">Item 1</a></li>
-                        <li data-value="Item 2"><a href="#">Item 2</a></li>
-                        <li data-value="Item 3"><a href="#">Item 3</a></li>
-                        <li data-value="Item 4"><a href="#">Item 4</a></li>
-                        <li data-value="Item 5"><a href="#">Item 5</a></li>
-                        <li data-value="Item 6"><a href="#">Item 6</a></li>
-                        <li data-value="Item 7"><a href="#">Item 7</a></li>
-                        <li data-value="Item 8"><a href="#">Item 8</a></li>
-                        <li data-value="Item 9"><a href="#">Item 9</a></li>
-                        <li data-value="Item 10"><a href="#">Item 10</a></li>
-                        <li data-value="Item 11"><a href="#">Item 11</a></li>
-                        <li data-value="Item 12"><a href="#">Item 12</a></li>
-                        <li data-value="Item 13"><a href="#">Item 13</a></li>
-                        <li data-value="Item 14"><a href="#">Item 14</a></li>
-                    </ul>
+            <div class="dd dropdown-wrap" data-value-enabled="true" data-name-enabled="true">
+                <span class="dropdown-placeholder"></span>
+                <ul class="dropdown">
+                    <li class="dropdown-option" data-name="" data-value="">Choose item</li>
+                    <li class="dropdown-option" data-name="Item 1" data-value="Item 1">Item 1</li>
+                    <li class="dropdown-option" data-name="Item 2" data-value="Item 2">Item 2</li>
+                    <li class="dropdown-option" data-name="Item 3" data-value="Item 3">Item 3</li>
+                    <li class="dropdown-option" data-name="Item 4" data-value="Item 4">Item 4</li>
+                    <li class="dropdown-option" data-name="Item 5" data-value="Item 5">Item 5</li>
+                </ul>
             </div>
         </div>
-
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="js/dd.js"></script>
 
         <script type="text/javascript">
             $(function() {
-                $('.dd').dropdown();
+                var $dd = $('.dd').dropdown({
+                    onInit: function() {
+                        console.log('init:', $(this));
+                    },
+                    onOpen: function() {
+                        console.log('open:', $(this));
+                    },
+                    onClose: function() {
+                        console.log('close:', $(this));
+                    },
+                    onChoose: function() {
+                        console.log('choose:', $(this));
+                    }
+                });
             });
         </script>
     </body>
